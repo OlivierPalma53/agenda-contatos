@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="row">
-  <form class="col s12">
+  <form class="col s12" method="POST" enctype="multipart/form-data">
     <div class="row">
       <div class="col s3">
         <h5>Foto do Contato</h5>
@@ -45,5 +45,52 @@
     </div>
   </form>
 </div>
-
 </div>
+<?php
+
+  if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    $nome = $_POST['nome'];
+    $dataNascimento = $_POST['data_nascimento'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+
+    require 'includes/connection.php';
+
+    $stmt = $conn->prepare("INSERT INTO contatos (nome, data_nascimento, email, telefone) values (?,?,?,?)");
+
+    $stmt->bind_param('ssss', $nome, $dataNascimento, $email, $telefone);
+
+    if($stmt->execute()){
+      echo '<script>alert("Inserido com sucesso")</script>';
+    }
+
+    $idUser = $stmt->insert_id;
+
+    $imagem = $_FILES['photo_profile'];
+
+    if($imagem['error']){
+      echo 'Erro';
+      die();
+    }
+
+    $dirImagens = 'imagens';
+
+    if(!is_dir($dirImagens)){
+      mkdir($dirImagens);
+    }
+
+    $new_path = $dirImagens . DIRECTORY_SEPARATOR . $idUser.".jpg";
+
+    if(move_uploaded_file($imagem['tmp_name'], $new_path)){
+      $img_contato = $idUser.".jpg";
+      $conn->query("UPDATE contatos SET img_contato = '$img_contato' WHERE id = '$idUser' ");
+    } else {
+      echo "Erro no Upload";
+    }
+
+
+
+  }
+
+?>

@@ -10,9 +10,9 @@
       <?php
       while($row = $result->fetch_assoc()){
         echo "<div class='col s4 m4'>";
-        echo "<div class='card z-depth-4'>";
+        echo "<div class='card medium z-depth-5'>";
         echo "<div class='card-image'>";
-        echo "<img src='imagens/".$row['img_contato']."'>";
+        echo "<img src='imagens/".$row['img_contato']."' width='200px' height='200px'>";
         echo "<span class='card-title'>".$row['nome']."</span>";
         echo "</div>";
         echo "<div class='card-content'>";

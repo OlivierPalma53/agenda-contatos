@@ -12,11 +12,11 @@
 
     <body>
       <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper z-depth-3">
         <a href="index.php" class="brand-logo txt-logo">Agenda de contatos</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li>
-            <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal" href="inserir.php">
+            <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal pulse" href="inserir.php">
               <i class="material-icons">add</i>
             </a>
           </li>
