@@ -9,21 +9,23 @@
       <div class="row">
       <?php
       while($row = $result->fetch_assoc()){
-        <div class="col s12 m7">
-          <div class="card">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
+        echo "<div class='col s4 m4'>";
+        echo "<div class='card z-depth-4'>";
+        echo "<div class='card-image'>";
+        echo "<img src='imagens/".$row['img_contato']."'>";
+        echo "<span class='card-title'>".$row['nome']."</span>";
+        echo "</div>";
+        echo "<div class='card-content'>";
+        echo "<p> <strong>Telefone: </strong>".$row['telefone']."</p>";
+        echo "<p> <strong>E-mail: </strong>".$row['email']."</p>";
+        echo "<p> <strong>Data de Nascimento: </strong>".$row['data_nascimento']."</p>";
+        echo "</div>";
+        echo "<div class='card-action'>";
+        echo "<a href='editar.php?id=".$row['id']."'>Editar</a>";
+        echo "<a href='excluir.php?id=".$row['id']."'>Excluir</a>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
       }
 
     ?>
