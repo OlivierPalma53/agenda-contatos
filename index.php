@@ -2,32 +2,30 @@
   require_once 'includes/header.php';
 ?>
 <div class="container">
-  <table class="bordered highlight responsive-table lista">
-    <thead>
-      <th>Nome</th>
-      <th>Data de Nascimento</th>
-      <th>E-mail</th>
-      <th>Telefone</th>
-      <th>Detalhes</th>
-    </thead>
     <?php
-
       require_once 'includes/connection.php';
-
       $result = $conn->query("SELECT * FROM contatos");
-
+      ?>
+      <div class="row">
+      <?php
       while($row = $result->fetch_assoc()){
-
-        echo "<tr>";
-        echo "<td>".$row['nome']."</td>";
-        echo "<td>".$row['data_nascimento']."</td>";
-        echo "<td>".$row['email']."</td>";
-        echo "<td>".$row['telefone']."</td>";
-        echo "<td><a class='waves-effect waves-light btn' href='detalhes.php?id=".$row['id']."'>Detalhes</a></td>";
-        echo "</tr>";
-
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/sample-1.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
       }
 
     ?>
-  </table>
+    </div>
 </div>
