@@ -28,6 +28,11 @@
         echo "</div>";
       }
 
+      if(isset($_GET['deletado'])){
+        if($_GET['deletado'] == "sucesso"){
+          echo '<script>alert("Deletado com sucesso")</script>';
+        }
+      }
     ?>
     </div>
 </div>
