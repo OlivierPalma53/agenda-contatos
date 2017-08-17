@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `contatos`;
 CREATE TABLE `contatos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
+  `data_nascimento` date DEFAULT NULL,
   `email` varchar(60) DEFAULT NULL,
   `telefone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -41,4 +42,4 @@ CREATE TABLE `contatos` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-16 16:12:54
+-- Dump completed on 2017-08-16 16:54:51
